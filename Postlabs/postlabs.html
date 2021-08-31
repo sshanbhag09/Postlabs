@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Timetable</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <style>
+            .register .nav-tabs .nav-link:hover{
+                border: none;
+            }
+            .container{
+                background: -webkit-linear-gradient(left, rgba(33, 16, 107, 0.6),rgb(0,198,255,0.9));
+                border-radius: 5%;
+                margin-top: 3%;
+                width:60%;
+                background-size: contain;
+
+            }
+            body{
+                background-image: url("University.jpg");
+                background-position: center;
+            }
+            
+            
+            .text-align{
+                margin-top: -3%;
+                margin-bottom: -9%;
+
+                padding: 10%;
+                margin-left: 30%;
+            }
+            .form-new{
+                margin-right: 22%;
+                margin-left: 20%;
+            }
+            .register-heading{
+                margin-left: 30%;
+                margin-bottom: 10%;
+                color: #e9ecef;
+            }
+            .register-heading h1{
+                margin-left: 21%;
+                margin-bottom: 10%;
+                color: #e9ecef;
+            }
+            .register{
+                background: -webkit-linear-gradient(left, #055a4f, #00c6ff);
+                margin-top: 3%;
+                padding: 3%;
+                border-radius: 2.5rem;
+            }
+            .btnSubmit
+            {
+                width: 50%;
+                border-radius: 1rem;
+                padding: 1.5%;
+                color: #fff;
+                background-color: #03612e;
+                border: none;
+                cursor: pointer;
+                margin-right: 6%;
+                color: rgb(246, 246, 252);
+                margin-top: 4%;
+            }
+    </style>
+
+</head>
+<body>
+    
+<div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                        <div class="tab-pane fade show active text-align form-new" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <h3 class="register-heading">Timetable</h3>
+                            <div class="row register-form"></div>
+                                <div class="col-md-12">
+                                    <form method="post" autocomplete="off" name="google-sheet">
+                                        <div class="form-group">
+                                            <input type="text" name="Name" class="form-control" placeholder="Your Name *" value="" required>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <select name="Practical or theory" class="form-control"   value="" required>
+                                                <option value="" disabled selected>Practical/ theory*</option>
+                                                <option value="Practical">Select Practical</option>
+                                                <option value="Theory">Select Theory</option>
+                                                </select>
+                                        </div>
+                          
+                             
+                                        <div class="form-group">
+                                            
+                                            <select name="Lecture" class="form-control"   value="" required>
+                                            <option value="" disabled selected>Select lecture</option>
+                                            <option value="Web Technologies">Web Technologies</option>
+                                            <option value="Software Engineering">Software Engineering</option>
+                                            <option value="Software Testing">Software Testing</option>
+                                            
+                                            <option value="Computer Org and Arch.">Computer Org and Arch.</option>
+                                            <option value="Communication Engg">Communication Engg</option>
+                                            <option value="PCE">PCE</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group">
+                                                <input type="text" name="Start time" class="form-control" placeholder="Start Time" value="" required>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <input type="text" name="End Time" class="form-control" placeholder="End Time" value="" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                    <select name="Batch" class="form-control"  value="" required>
+                                        <option value="" disabled selected>Select Batch</option>
+                                        <option value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="C">C</option>
+                                        <option value="D">D</option>
+                                    </select>
+                                    </div>
+
+                                        <div class="form-group">
+                                            <input type="submit" name="submit" class="btnSubmit btn-block" value="Login" />
+                                        </div>
+                                        
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+          
+          <script>
+            const scriptURL = 'https://script.google.com/macros/s/AKfycby97je2ovRL4lNcg_uD9LrCRMFyvLIaVIpY2vpUI9X0nAshsg1NBLnIZrUiJfIAhI6GJw/exec'           
+             const form = document.forms['google-sheet']
+          
+            form.addEventListener('submit', e => {
+              e.preventDefault()
+              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon..."))
+                .catch(error => console.error('Error!', error.message))
+            })
+          </script>
+
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</body>
+</html>
+           
